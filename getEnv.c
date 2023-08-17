@@ -7,10 +7,11 @@
 */
 char *getEnv(char *input)
 {
+	unsigned long int i;
 	char **args;
 	char *filename, *pathEnv, *pathCopy, *token, *result;
 
-	for (int i = 1; i < strlen(input); i++)
+	for (i = 1; i < strlen(input); i++)
 	{
 		args = tokenize(input);
 		filename = args[0];
