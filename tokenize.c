@@ -31,5 +31,6 @@ char **tokenize(char *input)
 	}
 	args[argCount] = NULL;
 
+	free(token); // ajout pr test free valgrind
 	return (args);
 }

@@ -15,7 +15,6 @@ extern char **environ;
 
 int execute(char *input);
 char *getEnv(char *input);
-int isEmpty(const char *str);
 char **tokenize(char *input);
 
 #endif
