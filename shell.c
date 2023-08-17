@@ -8,7 +8,6 @@
 */
 int main(int argc, char *argv[])
 {
-	char *prompt = "Shell 🎈 ";
 	char *line = NULL;
 	int exe;
 	size_t len = 0;
@@ -16,14 +15,11 @@ int main(int argc, char *argv[])
 
 	while (1)
 	{
-		printf("%s", prompt);
 		fflush(stdout);
 
 		if (getline(&line, &len, stdin) == -1)
-		{
-			printf("Exiting...\n");
 			break;
-		}
+
 		if (*line == '\n')
 			continue;
 
