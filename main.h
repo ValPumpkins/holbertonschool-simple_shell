@@ -9,6 +9,8 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 /* Prototypes*/
 
 int execute(char *input);

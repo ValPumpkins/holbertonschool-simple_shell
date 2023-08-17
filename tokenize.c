@@ -21,6 +21,9 @@ char **tokenize(char *input)
 
 	token = strtok(input, " \t\n");
 
+	if (token == NULL)
+		exit(EXIT_FAILURE);
+
 	while (token != NULL)
 	{
 		args[argCount++] = token;
