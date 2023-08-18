@@ -26,11 +26,16 @@ char **tokenize(char *input)
 
 	while (token != NULL)
 	{
-		args[argCount++] = token;
+		args[argCount] = strdup(token);
+		if(args[argCount] == NULL)
+		{
+			perror("Memory allocation failed");
+			exit(1);
+		}
+		argCount++;
 		token = strtok(NULL, " \t\n");
 	}
 	args[argCount] = NULL;
 
-	free(token); // ajout pr test free valgrind
 	return (args);
 }
