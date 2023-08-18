@@ -10,6 +10,7 @@ char **tokenize(char *input)
 	char *token;
 	char **args = NULL;
 	unsigned int argCount = 0;
+	char *saveptr;
 
 	args = malloc(sizeof(char *) * 1024);
 
@@ -19,7 +20,7 @@ char **tokenize(char *input)
 		exit(1);
 	}
 
-	token = strtok(input, " \t\n");
+	token = strtok_r(input, " \t\n", &saveptr);
 
 	if (token == NULL)
 		exit(EXIT_FAILURE);
@@ -33,7 +34,7 @@ char **tokenize(char *input)
 			exit(1);
 		}
 		argCount++;
-		token = strtok(NULL, " \t\n");
+		token = strtok_r(NULL, " \t\n", &saveptr);
 	}
 	args[argCount] = NULL;
 
