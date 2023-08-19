@@ -9,9 +9,9 @@ char **tokenize(char *input)
 {
 	char *token;
 	char **args = NULL;
-	unsigned int argCount = 0;
+	int argCount = 0;
 
-	args = malloc(sizeof(char *) * 1024);
+	args = calloc(10, sizeof(char *));
 
 	if (args == NULL)
 	{
