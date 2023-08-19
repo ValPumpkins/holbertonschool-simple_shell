@@ -1,34 +1,52 @@
 #include "main.h"
 
 /**
+* trimInput - trim leading and trailing whitespace
+* @input: input string
+* Return: trimmed string
+*/
+char *trimInput(char *input)
+{
+	char *trimmedInput = input;
+
+	while (*trimmedInput == ' ' || *trimmedInput == '\t')
+		trimmedInput++;
+
+	if (*trimmedInput == '\n' || *trimmedInput == '\0')
+		return (NULL);
+
+	return (trimmedInput);
+}
+
+/**
 * main - Entry point
-* @argc: argument count
-* @argv: argument vector
+*
 * Return: Always 0 (Success)
 */
-int main(int argc, char *argv[])
+int main(void)
 {
-	char *line = NULL;
+	char *line = NULL, *trimmedInput = NULL;
 	int exe;
 	size_t len = 0;
-	(void)argc;
+	ssize_t readChars;
 
 	while (1)
 	{
-		fflush(stdout);
+		if (isatty(STDIN_FILENO))
+			printf("Shell 🎈 ");
 
-		if (getline(&line, &len, stdin) == -1)
+		readChars = getline(&line, &len, stdin);
+		if (readChars == -1)
 			break;
 
-		if (*line == '\n')
+		trimmedInput = trimInput(line);
+
+		if (trimmedInput == NULL)
 			continue;
-
 		exe = execute(line);
-
 		if (exe == -1)
-			perror(argv[0]);
+			perror("error");
 	}
 	free(line);
-
 	return (0);
 }
