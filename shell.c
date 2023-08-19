@@ -7,13 +7,13 @@
 */
 char *trimInput(char *input)
 {
-	char* trimmedInput = input;
+	char *trimmedInput = input;
 
 	while (*trimmedInput == ' ' || *trimmedInput == '\t')
 		trimmedInput++;
 
 	if (*trimmedInput == '\n' || *trimmedInput == '\0')
-		return NULL;
+		return (NULL);
 
 	return (trimmedInput);
 }
@@ -32,7 +32,7 @@ int main(void)
 
 	while (1)
 	{
-		if(isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO))
 			printf("Shell 🎈 ");
 
 		readChars = getline(&line, &len, stdin);
@@ -44,7 +44,7 @@ int main(void)
 		if (trimmedInput == NULL)
 			continue;
 		exe = execute(line);
-		if(exe == -1)
+		if (exe == -1)
 			perror("error");
 	}
 	free(line);

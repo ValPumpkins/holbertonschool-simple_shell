@@ -8,6 +8,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <ctype.h>
 
 extern char **environ;
 
@@ -16,5 +18,8 @@ extern char **environ;
 int execute(char *input);
 char *getEnv(char *input);
 char **tokenize(char *input);
+void exeComd(char **argv);
+char *trimInput(char *input);
+
 
 #endif

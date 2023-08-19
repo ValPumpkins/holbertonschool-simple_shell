@@ -9,23 +9,11 @@ int execute(char *input)
 {
 	int status, exe;
 	char **args;
-
-	pid_t pid = fork();
+	pid_t pid;
 
 	args = tokenize(input);
+	pid = fork();
 
-	if (args[0] == NULL)
-	{
-		fprintf(stderr, "No command\n");
-		free(args);
-		return (-1);
-	}
-	if (access(args[0], F_OK | X_OK) == -1)
-	{
-		perror(args[0]);
-		free(args);
-		return (-1);
-	}
 	if (pid < 0)
 	{
 		perror("Fork failed");
@@ -37,14 +25,15 @@ int execute(char *input)
 		exe = execve(args[0], args, environ);
 		if (exe < 0)
 		{
-			perror(args[0]);
 			free(args);
-			exit(1);
+			return (-1);
 		}
+		exit(1);
 	}
 	else
+	{
 		wait(&status);
-
-	free(args);
+		free(args);
+	}
 	return (1);
 }
