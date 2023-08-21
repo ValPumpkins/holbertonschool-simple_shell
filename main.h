@@ -20,7 +20,7 @@ char *getEnv(char *input);
 char **tokenize(char *input);
 void exeComd(char **argv);
 char *trimInput(char *input);
-char *getPath(char *input, char **args);
+int main(int argc, char **argv);
 
 
 #endif
