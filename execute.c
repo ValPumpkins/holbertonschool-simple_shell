@@ -8,20 +8,21 @@
 int execute(char *input)
 {
 	int status, exe;
-	char *path, **args;
+	char *path, **args, *trimmedInput = input;
 	pid_t pid;
 
 	args = tokenize(input);
-	path = getPath(input, args);
 
-	if (path == NULL)
+	if (trimmedInput[0] == '/')
+		path = strdup(trimmedInput);
+	else
+		path = getEnv(args[0]);
+	if (path == NULL || args == NULL)
 	{
 		free(args);
 		return (-1);
 	}
-
 	pid = fork();
-
 	if (pid < 0)
 	{
 		free(args);
