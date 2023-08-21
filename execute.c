@@ -17,15 +17,12 @@ int execute(char *input)
 		path = strdup(trimmedInput);
 	else
 		path = getEnv(args[0]);
-
 	if (path == NULL || args == NULL)
 	{
 		free(args);
 		return (-1);
 	}
-
 	pid = fork();
-
 	if (pid < 0)
 	{
 		free(args);
