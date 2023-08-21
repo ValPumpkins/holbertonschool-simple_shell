@@ -8,13 +8,12 @@
 int execute(char *input)
 {
 	int status, exe;
-	char *path, **args, *trimmedInput;
+	char *path, **args;
 	pid_t pid;
 
-	trimmedInput = trimInput(input);
-	args = tokenize(trimmedInput);
-	if (trimmedInput[0] == '/')
-		path = strdup(trimmedInput);
+	args = tokenize(input);
+	if (input[0] == '/' || (input[0] == '.' && input[1] == '/'))
+		path = strdup(input);
 	else
 		path = getEnv(args[0]);
 	if (path == NULL || args == NULL)

@@ -8,7 +8,7 @@
 */
 int main(int argc, char **argv)
 {
-	char *line = NULL, *trimmedInput = NULL;
+	char *input = NULL, *trimmedInput = NULL;
 	int exe;
 	size_t len = 0;
 	ssize_t readChars;
@@ -24,11 +24,11 @@ int main(int argc, char **argv)
 		if (isatty(STDIN_FILENO))
 			printf("Shell 🎈 ");
 
-		readChars = getline(&line, &len, stdin);
+		readChars = getline(&input, &len, stdin);
 		if (readChars == -1)
 			break;
 
-		trimmedInput = trimInput(line);
+		trimmedInput = trimInput(input);
 
 		if (trimmedInput == NULL)
 			continue;
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 		if (exe == -1)
 			perror(argv[0]);
 	}
-	free(line);
+	free(input);
 
 	return (0);
 }
