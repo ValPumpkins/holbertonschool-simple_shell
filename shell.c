@@ -26,10 +26,7 @@ int main(int argc, char **argv)
 
 		readChars = getline(&line, &len, stdin);
 		if (readChars == -1)
-		{
-			putchar('\n');
 			break;
-		}
 
 		trimmedInput = trimInput(line);
 
