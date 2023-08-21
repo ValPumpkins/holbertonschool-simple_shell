@@ -8,11 +8,11 @@
 int execute(char *input)
 {
 	int status, exe;
-	char *path, **args, *trimmedInput = input;
+	char *path, **args, *trimmedInput;
 	pid_t pid;
 
-	args = tokenize(input);
-
+	trimmedInput = trimInput(input);
+	args = tokenize(trimmedInput);
 	if (trimmedInput[0] == '/')
 		path = strdup(trimmedInput);
 	else
