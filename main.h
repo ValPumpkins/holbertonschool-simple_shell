@@ -21,6 +21,7 @@ char **tokenize(char *input);
 void exeComd(char **argv);
 char *trimInput(char *input);
 int main(int argc, char **argv);
+void freeMemory(char **args, char *path);
 
 
 #endif
