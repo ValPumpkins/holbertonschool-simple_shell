@@ -68,7 +68,6 @@ We have also created a corresponding man page for the Simple shell providing det
 ```
 man ./man_1_simple_shell.1
 ```
-
 <br></br>
 ## ⚒️ Tools
 
