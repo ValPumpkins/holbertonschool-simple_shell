@@ -1,0 +1,64 @@
+.TH HSH 1 "August 2023" "HSH SIMPLE SHELL Linux Manual"
+
+.SH NAME
+
+hsh - Simple Shell : A basic command line interpreter
+
+.SH SYNOPSIS
+.B hsh [command] [argument]
+for interactive mode and
+.B echo "[command] [argument]" | ./hsh
+for non-interactive mode.
+
+.SH DESCRIPTION
+.PP
+\fBhsh\fP is a simple command-line shell interpreter. It supports the execution of system
+commands and scripts. This shell is designed to be used in basic scripting scenarios and does not
+provide all the advanced features of a complete shell.
+
+.SH OPTIONS
+.PP
+work in progress
+.SH COMPILATION
+.PP
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+.SH USAGE
+.PP
+After compilation, launch the shell by typing \fB./hsh\fP in your terminal.
+
+.SH MODES
+The shell can be used in interactive or non-interactive mode.
+The interactive mode is how the shell is normally used, the executable file is run and we can write commands.
+In the non-interactive mode you pass the command to the executable file with a pipe operator.
+
+.IP -\\fBInteractive mode\fP
+.PP
+.B
+Shell 🎈 ls -l
+.TP
+.IP -\\fBNon-interactive mode\fP
+.PP
+.B
+echo "/bin/ls"| ./hsh
+
+.SH INTERNAL COMMANDS
+.PP
+The shell supports the following internal commands :
+
+.SH FUNCTIONS
+.PP
+work in progress
+.SH AUTHORS
+.PP
+Lucie RUIN & Valentine QUIGNON for HOLBERTON School 2023
+.SH SEE ALSO
+.PP
+Work in progress
+.SH BUGS
+.PP
+Work in progress.
+
+.SH COPYRIGHT
+.PP
+Copyright © 2023, this program is distributeed under the MIT Licence
