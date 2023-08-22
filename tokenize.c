@@ -22,7 +22,10 @@ char **tokenize(char *input)
 	token = strtok(input, " \t\n");
 
 	if (token == NULL)
-		exit(EXIT_FAILURE);
+	{
+		free(args);
+		return (NULL);
+	}
 
 	while (token != NULL)
 	{
