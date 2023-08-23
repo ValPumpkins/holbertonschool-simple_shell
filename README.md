@@ -82,6 +82,18 @@ Shell 🎈 ls
 ```
 In this case, the simple shell will look for the address of the command in the environment so that it can be executed correctly.
 <br></br>
+## 🗂️ File Details
+
+| Filename| Summary| 
+| -------- | -------- |
+| main.h   | Header |
+| shell.c   | Simple Shell programm |
+| trimInput.c   | Remove unnecessary spaces and tabs around user input |
+| tokenize.c   | Split an input line into an array of arguments for execution |
+| execute.c   | Execute the provided command. Manages the creation of child processes, command execution,and waiting for execution to complete |
+| getEnv.c   | Retrieve the full path of a command by searching through directories specified by the PATH environment variable |        
+
+<br></br>
 ## 📖 Our man page
 
 We have also created a corresponding man page for the Simple shell providing detailed information about its usage and available format specifiers. To access the man page, run the following command in your terminal:
