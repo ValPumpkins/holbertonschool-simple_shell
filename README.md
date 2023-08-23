@@ -1,4 +1,4 @@
-# <p align="center">Simple Shell</p>
+# <p align="center">🐚 Simple Shell 🐚</p>
 <p align="center">Our simplified implementation of the simple shell in C language<p>
   <br></br>
 
@@ -24,7 +24,7 @@ This project brings together a large part of the knowledge acquired in order to 
 ## 📊 Flowchart
 ![](https://cdn.discordapp.com/attachments/1130868842197962864/1143532681271971840/Capture_decran_2023-08-22_a_15.10.15.png)
 <br></br>
-## 🤨 How to use the Simple shell
+## 🤨 How to use the Simple Shell
 
 This simple shell project uses several standard libraries contained in C. So you will need:
 - `<stdio.h>`
@@ -61,6 +61,26 @@ To see the simple shell prompt appear.
 ```
 Shell 🎈
 ```
+You can now type in the commands you want to execute, like the one below
+<br></br>
+## ⌨️ How Simple Shell works
+
+After receiving a command, our Simple Shell tokenizes it into words using a space " ", a tabulation " \t ", or a new line " \n ", as a delimiter. The first word is considered the command, and all remaining words are considered arguments for that command. The Simple Shell then proceeds with the following actions:
+If the first character is a forward slash " / ", the Simple Shell will recognize it as a path and will execute the command without further actions.
+If the first character is not a forward slash " / ", the Simple Shell will check if the input is a built-in command; if it is, the shell will execute it. If it's not a built-in command, the shell will proceed to search each element of the PATH environmental variable for a directory containing an executable file with that name.
+
+For example, with the `ls` command which displays the list of files in the current directory:\
+If the user knows the path of the command:
+```
+ Shell 🎈 /bin/ls
+```
+The simple shell will execute it directly.
+
+On the other hand, if the user does not know the path, they can type the command directly:
+```
+Shell 🎈 ls
+```
+In this case, the simple shell will look for the address of the command in the environment so that it can be executed correctly.
 <br></br>
 ## 📖 Our man page
 
