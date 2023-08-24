@@ -1,8 +1,8 @@
 .TH HSH 1 "August 2023" "HSH SIMPLE SHELL Linux Manual"
 
 .SH NAME
-
-hsh - Simple Shell : A basic command line interpreter
+.PP
+.B ./hsh - Simple Shell : A basic command line interpreter
 
 .SH SYNOPSIS
 .B hsh [command] [argument]
@@ -18,47 +18,92 @@ provide all the advanced features of a complete shell.
 
 .SH OPTIONS
 .PP
-work in progress
+no options included
 .SH COMPILATION
 .PP
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+GNU Compiler Collection
+.P
+.RS
+.B $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+.P
+.RE
 
 .SH USAGE
 .PP
-After compilation, launch the shell by typing \fB./hsh\fP in your terminal.
+After compilation, launch the shell by typing \fB./hsh\fP in your terminal. The following prompt will appear : "Shell 🎈".
 
 .SH MODES
-The shell can be used in interactive or non-interactive mode.
-The interactive mode is how the shell is normally used, the executable file is run and we can write commands.
-In the non-interactive mode you pass the command to the executable file with a pipe operator.
+The shell can be used in interactive (with the "Shell 🎈" prompt) or non-interactive mode.
 
-.IP -\\fBInteractive mode\fP
+In the interactive mode, this simple shell works by taking user input on the terminal (after pressing the enterkey).
+.IP Interactive mode
 .PP
-.B
-Shell 🎈 ls -l
-.TP
-.IP -\\fBNon-interactive mode\fP
-.PP
-.B
-echo "/bin/ls"| ./hsh
+.B Shell 🎈 ls -l
 
-.SH INTERNAL COMMANDS
+In the non-interactive mode the command will be pass to the executable file with a pipe '|' operator.
+.IP Non-interactive mode
 .PP
-The shell supports the following internal commands :
+.B  "/bin/ls"| ./hsh
 
-.SH FUNCTIONS
-.PP
-work in progress
+.SH BUILTINS
+The following builtin commands are supported:
+.RS
+.IT
+.B env
+- prints the environment variables
+.br
+.B exit
+- exits the shell
+
+.RE
+Example of builtin command:
+.RS
+.br
+\&Shell 🎈 env
+.br
+\HOSTNAME=14c852d0afe0
+.br
+PWD=/root/holbertonschool-simple_shell
+.br
+TZ=America/Los_Angeles
+.br
+HOME=/root
+.br
+\LANG=en_US.UTF-8
+.br
+LS_COLORS=rs=0:di=01;34:ln=01;36:(...)
+.br
+LESSCLOSE=/usr/bin/lesspipe %s %s
+.br
+TERM=xterm
+.br
+LESSOPEN=| /usr/bin/lesspipe %s
+.br
+SHLVL=1
+.br
+LC_ALL=enUS.UTF-8
+.br
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+.br
+OLDPWD=/root
+.br
+=./hsh
+
+.SH EXIT
+\fBhsh\fR returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure.
+
+All builtins return 0 on success and 1 or 2 on failure (indicated by a corresponding error message).
+
+.SH BUGS
+Exit return error don't always have the good status number.
+
 .SH AUTHORS
 .PP
 Lucie RUIN & Valentine QUIGNON for HOLBERTON School 2023
 .SH SEE ALSO
 .PP
-Work in progress
-.SH BUGS
-.PP
-Work in progress.
+sh
 
 .SH COPYRIGHT
 .PP
-Copyright © 2023, this program is distributeed under the MIT Licence
+Copyright 2023, this program is distributeed under the MIT Licence
