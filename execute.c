@@ -26,7 +26,7 @@ int execute(char *input)
 	args = tokenize(input);
 	if (args == NULL)
 		return (-1);
-	if (input[0] == '/' || (input[0] == '.' && input[1] == '/'))
+	if (input[0] == '/' || input[0] == '.')
 		path = strdup(input);
 	else
 		path = getEnv(args[0]);
