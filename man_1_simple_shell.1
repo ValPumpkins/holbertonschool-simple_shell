@@ -89,15 +89,20 @@ OLDPWD=/root
 .br
 =./hsh
 
+.SH EXIT
+\fBhsh\fR returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure.
+
+All builtins return 0 on success and 1 or 2 on failure (indicated by a corresponding error message).
+
+.SH BUGS
+Exit return error don't always have the good status number.
+
 .SH AUTHORS
 .PP
 Lucie RUIN & Valentine QUIGNON for HOLBERTON School 2023
 .SH SEE ALSO
 .PP
 sh
-.SH BUGS
-.PP
-No bugs known
 
 .SH COPYRIGHT
 .PP
