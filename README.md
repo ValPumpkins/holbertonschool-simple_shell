@@ -96,8 +96,51 @@ In this case, the simple shell will look for the address of the command in the e
 <br></br>
 ## 🪄 Testing
 
+Here are a few examples of the commands we tested in order to validate the proper implementation of our Simple Shell :
 
-<br></br>     
+- command: `ls`
+```sh
+Shell 🎈 ls
+README.md hsh tokenize.c main.h
+trimInput.c execute.c getEnv.c shell.c
+```
+
+- command with all path: `/bin/pwd`
+```sh
+Shell 🎈 /bin/pwd
+/workspaces/holbertonschool-simple_shell
+```
+
+- command with an argument: `ls -l`
+```sh
+Shell 🎈 ls -l
+total 152
+-rw-r--r--  1 valentineq  staff     63 Aug 24 13:40 README.md
+-rw-r--r--  1 valentineq  staff    867 Aug 24 13:40 execute.c
+-rw-r--r--  1 valentineq  staff    618 Aug 24 13:40 getEnv.c
+-rwxr-xr-x  1 valentineq  staff  34104 Aug 24 13:40 hsh
+-rw-r--r--  1 valentineq  staff    457 Aug 24 13:40 main.h
+-rw-r--r--  1 valentineq  staff    713 Aug 24 13:40 shell.c
+-rw-r--r--  1 valentineq  staff    553 Aug 24 13:40 tokenize.c
+-rw-r--r--  1 valentineq  staff    357 Aug 24 13:40 trimInput.c
+```
+
+- Non-interactive mode: `echo "ls -a" | ./hsh`
+```sh
+echo "ls -a" | ./hsh
+.               README.md       main.h
+..              ex.1           manExemple.1
+.devcontainer   execute.c       shell.c
+.git            getEnv.c        tokenize.c
+.vscode         hsh             trimInput.c
+```
+
+- If the command doesn't exist: `toto`
+```sh
+Shell 🎈 toto
+./hsh: No such file or directory
+```
+<br></br>      
 ## 🐞 Bugs
 
 Exit return error don't always have the good status number.
