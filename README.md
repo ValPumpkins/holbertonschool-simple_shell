@@ -42,7 +42,7 @@ Here is the function prototype:
 int main(int argc, char **argv);
 ```
 `argc` is the argument count.\
-`argv`is the argument vector.
+`argv` is the argument vector.
 
 You can compile all `.c` files with the following `gcc`:
 
@@ -90,7 +90,7 @@ In this case, the simple shell will look for the address of the command in the e
 | shell.c   | Simple Shell programm |
 | trimInput.c   | Remove unnecessary spaces and tabs around user input |
 | tokenize.c   | Split an input line into an array of arguments for execution |
-| execute.c   | Execute the provided command. Manages the creation of child processes, command execution,and waiting for execution to complete |
+| execute.c   | Execute the provided command. Manages the creation of child processes, command execution, and waiting for execution to complete |
 | getEnv.c   | Retrieve the full path of a command by searching through directories specified by the PATH environment variable |   
 
 <br></br>
@@ -98,20 +98,20 @@ In this case, the simple shell will look for the address of the command in the e
 
 Here are a few examples of the commands we tested in order to validate the proper implementation of our Simple Shell :
 
-- command: `ls`
+- Command: `ls`
 ```sh
 Shell 🎈 ls
 README.md hsh tokenize.c main.h
 trimInput.c execute.c getEnv.c shell.c
 ```
 
-- command with all path: `/bin/pwd`
+- Full path of a command: `/bin/pwd`
 ```sh
 Shell 🎈 /bin/pwd
 /workspaces/holbertonschool-simple_shell
 ```
 
-- command with an argument: `ls -l`
+- Command with an argument: `ls -l`
 ```sh
 Shell 🎈 ls -l
 total 152
@@ -140,6 +140,10 @@ echo "ls -a" | ./hsh
 Shell 🎈 toto
 ./hsh: No such file or directory
 ```
+<br></br>
+## 🚪 Exit
+
+The simple shell returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure. All builtins return 0 on success and 1 or 2 on failure (indicated by a corresponding error message).
 <br></br>      
 ## 🐞 Bugs
 
